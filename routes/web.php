@@ -12,9 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*posts Routes*/
 Route::get('/posts','PostsController@index');
+Route::get('/posts/create','PostsController@create');
 Route::get('/posts/{id}','PostsController@show');
+Route::post('/posts','PostsController@store');
+/*comments Routes*/
+Route::post('/post/comments','CommentsController@show');
+
 
 
 

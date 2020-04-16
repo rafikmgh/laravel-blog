@@ -12,6 +12,7 @@
         <div class="content">
             {{ $post->content }}
         </div>
+        <a href="post/comments">Comments</a>
     </article>
 
 @stop

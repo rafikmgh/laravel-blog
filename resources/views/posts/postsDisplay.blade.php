@@ -11,7 +11,9 @@
        <div class="content">
            {{$post->content}}
        </div>
+       <a href="post/comments">Comments</a>
    </article>
-
   @endforeach
+
+<a href="/posts/create"><h3>Create a post</h3></a>
 @stop

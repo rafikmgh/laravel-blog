@@ -2,7 +2,11 @@
 
 
 namespace App\Http\Controllers;
+use App\Http\Requests\CreatePostRequest;
 use App\Post;
+
+
+
 class PostsController extends Controller
 {
 
@@ -12,7 +16,7 @@ class PostsController extends Controller
      */
     public function index()
  {
- $posts = Post::all();
+ $posts = Post::latest()->get();
  return view('posts.postsDisplay',compact('posts'));
  }
 
@@ -28,6 +32,29 @@ class PostsController extends Controller
  return view('posts.showPost', compact('post'));
 
  }
+
+    /**
+     * create a new post
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function create()
+   {
+       return view('posts.create');
+   }
+
+
+    /**
+     * store all the data and display them to posts page
+     * @param CreatePostRequest $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function store(CreatePostRequest $request)
+   {
+
+   $post = Post::create($request->all());
+   return redirect('posts');
+
+   }
 
 
 }
