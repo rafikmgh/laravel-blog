@@ -25,7 +25,7 @@ class CreatePostRequest extends FormRequest
     {
         return [
             'title'=>'required|min:3',
-            'body'=>'required'
+            'content'=>'required'
         ];
     }
 }
