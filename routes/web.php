@@ -23,6 +23,8 @@ Route::post('/posts','PostsController@store');
 Route::get('/posts/comments/{id}/add','CommentsController@add');
 Route::get('/posts/comments/{id}','CommentsController@show');
 Route::post('/posts/comments/{id}','CommentsController@store');
+Route::get('posts/comments/{id}/{idcomment}/addupdate','CommentsController@update');
+Route::post('posts/comments/{id}/{commentid}','CommentsController@storeupdate');
 /*Route::get('/posts/comments/{id}','CommentsController@store');*/
 
 
