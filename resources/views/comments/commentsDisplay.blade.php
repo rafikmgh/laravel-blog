@@ -19,5 +19,6 @@
         @endforeach
 
     </div>
+    <a href="{{$id}}/add">add a comment</a>
 
 @stop

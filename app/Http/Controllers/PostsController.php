@@ -4,7 +4,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\CreatePostRequest;
 use App\Post;
-use Illuminate\Http\Request;
+
 
 
 class PostsController extends Controller
@@ -44,13 +44,12 @@ class PostsController extends Controller
 
 
     /**
-     * store all the data and display them to posts page
+     * store the poste and display it to posts page
      * @param CreatePostRequest $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(CreatePostRequest $request)
    {
-   Request::
 
    $post = Post::create($request->all());
    return redirect('posts');

@@ -18,7 +18,16 @@ Route::get('/posts/create','PostsController@create');
 Route::get('/posts/{id}','PostsController@show');
 Route::post('/posts','PostsController@store');
 /*comments Routes*/
+
+
+Route::get('/posts/comments/{id}/add','CommentsController@add');
 Route::get('/posts/comments/{id}','CommentsController@show');
+Route::post('/posts/comments/{id}','CommentsController@store');
+/*Route::get('/posts/comments/{id}','CommentsController@store');*/
+
+
+
+
 
 
 

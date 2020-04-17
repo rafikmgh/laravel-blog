@@ -11,7 +11,7 @@
        <div class="content">
            {{$post->content}}
        </div>
-       <a href="post/comments/{{$post->id}}">Comments</a>
+       <a href="posts/comments/{{$post->id}}">Comments</a>
    </article>
   @endforeach
 
