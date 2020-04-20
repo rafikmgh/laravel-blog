@@ -11,9 +11,10 @@
        <div class="content">
            {{$post->content}}
        </div>
-       <a href="posts/comments/{{$post->id}}">Comments</a>
+       <a href="posts/comments/{{$post->id}}">Comments</a></br>
+       <a href={{route('posts.delete',$post->id)}}>delete your poste ?</a>
    </article>
   @endforeach
 
-<a href="/posts/create"><h3>Create a post</h3></a>
+<a href={{route('posts.create')}}><h3>Create a post</h3></a>
 @stop

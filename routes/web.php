@@ -13,19 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 /*posts Routes*/
-Route::get('/posts','PostsController@index');
-Route::get('/posts/create','PostsController@create');
-Route::get('/posts/{id}','PostsController@show');
-Route::post('/posts','PostsController@store');
+    Route::get('/posts','PostsController@index')->name('posts.index');
+    Route::get('/posts/create','PostsController@create')->name('posts.create');
+    Route::get('/posts/{id}','PostsController@show')->name('posts.show');
+    Route::post('/posts','PostsController@store')->name('posts.store');
+    Route::get('/posts/{id}/edit','PostsController@edit')->name('posts.edit');
+    Route::post('/posts/{id}','PostsController@update')->name('posts.update');
+    Route::get('/posts/{id}/delete','PostsController@delete')->name('posts.delete');
+
+
 /*comments Routes*/
 
 
-Route::get('/posts/comments/{id}/add','CommentsController@add');
-Route::get('/posts/comments/{id}','CommentsController@show');
-Route::post('/posts/comments/{id}','CommentsController@store');
-Route::get('posts/comments/{id}/{idcomment}/addupdate','CommentsController@update');
-Route::post('posts/comments/{id}/{commentid}','CommentsController@storeupdate');
-/*Route::get('/posts/comments/{id}','CommentsController@store');*/
+    Route::get('/posts/comments/{id}/add','CommentsController@add')->name('comments.add');
+    Route::get('/posts/comments/{id}','CommentsController@show')->name('comments.show');
+    Route::post('/posts/comments/{id}','CommentsController@store')->name('comments.store');
+    Route::get('posts/comments/{id}/{idcomment}/addupdate','CommentsController@edit')->name('comments.edit');
+    Route::post('posts/comments/{id}/{commentid}','CommentsController@update')->name('comments.update');
+    Route::get('posts/comments/{id}/{commentid}/delete','CommentsController@delete')->name('comments.delete');
+
+
 
 
 

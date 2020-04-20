@@ -15,7 +15,7 @@ class CommentsController extends Controller
 public function show($id)
 {
   $post = Post::FindOrFail($id);
-  $comments = Comment::where('postid',$id)->get();
+  $comments = $post->comments;
    return view('comments.commentsDisplay')->with(compact('post','comments','id'));
 }
 
@@ -34,29 +34,35 @@ public function show($id)
     /**
      *
      * @param AddCommentRequest $request
-     * @param $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(AddCommentRequest $request, $id)
-   {
+    {
 
-    $comment = Comment::create(['postid'=>$id,'author'=>$request->input('author'),'comment'=>$request->input('comment')]);
-   return redirect("/posts/comments/$id");
+        $comment = Comment::create(['postid'=>$id,'author'=>$request->input('author'),'comment'=>$request->input('comment')]);
+        return redirect("/posts/comments/$id");
 
-   }
+    }
 
-   public function update($id , $commentid)
+   public function edit($id , $commentid)
    {
        return view('comments.update',compact('id','commentid'));
    }
 
 
-   public  function storeupdate(UpdateCommentRequest $request,$id,$commentid)
+   public  function update(UpdateCommentRequest $request,$id,$commentid)
    {
        $comment = Comment::findOrFail($commentid);
        $comment->comment = $request->input('newcomment');
        $comment->save();
-       return redirect("/posts/comments/$id");
+       return redirect()->route('comments.show',$id);
+
+   }
+   public function delete($id ,$commentid)
+   {
+       $comment = Comment::FindOrFail($commentid);
+       $comment->delete();
+       return redirect()->route('comments.show',$id);
 
    }
 

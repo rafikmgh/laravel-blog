@@ -12,7 +12,8 @@
         <div class="content">
             {{ $post->content }}
         </div>
-        <a href="comments/{{$post->id}}">Comments</a>
+        <a href="comments/{{$post->id}}">Comments</a><br/>
+        <a href="{{$post->id}}/edit">update your post</a>
     </article>
 
 @stop

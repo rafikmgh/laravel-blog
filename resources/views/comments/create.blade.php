@@ -1,7 +1,8 @@
+
 @extends('app')
 
 @section('title')
-add a comment
+    add a comment
 @stop
 
 

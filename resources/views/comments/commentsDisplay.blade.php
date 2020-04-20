@@ -15,7 +15,7 @@
         @foreach($comments as $comment)
             <div class="comment">
                 <strong>{{$comment->author}}</strong>:"{{$comment->comment}}" at {{$comment->commented_at}} <a
-                    href="/posts/comments/{{$id}}/{{$comment->id}}/addupdate">update</a>
+                    href="/posts/comments/{{$id}}/{{$comment->id}}/addupdate">update</a> <a href="/posts/comments/{{$id}}/{{$comment->id}}/delete">supprimer</a>
             </div>
         @endforeach
 
